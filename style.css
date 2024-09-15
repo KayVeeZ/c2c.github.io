@@ -1,0 +1,155 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #1e1e1e;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    transition: transform 0.3s ease; /* Smooth slide-in/out */
+    transform: translateX(0); /* Default position */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #3d3d3d;
+    border-radius: 5px;
+}
+
+/* Toggle button for sidebar */
+.toggle-btn {
+    font-size: 30px;
+    background-color: #1e1e1e;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #333;
+}
+
+.toggle-btn:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Main content styling */
+.main-content {
+    margin-left: 250px; /* Matches the sidebar width */
+    padding: 20px;
+    width: calc(100% - 250px); /* Prevent overflow issues */
+    transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition when sidebar is hidden */
+}
+
+header {
+    background-color: #1e88e5;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Sidebar hidden */
+.sidebar-hidden {
+    transform: translateX(-100%);
+}
+
+.content-expanded {
+    margin-left: 0;
+    width: 100%;
+}
+
+/* Active section */
+.section.active {
+    display: block;
+}
+
+.section {
+    display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
